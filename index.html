@@ -529,9 +529,9 @@ const THEMES = [
 function applyTheme(id){
   document.body.className = 'th-'+id;
   D.theme = id; dbSave(); renderThemeGrid();
-  // SafariのURLバー・ホームインジケーター周辺の色をテーマに合わせる
   const t = THEMES.find(function(x){ return x.id===id; }) || THEMES[0];
   document.getElementById('theme-color-meta').setAttribute('content', t.bg);
+  document.documentElement.style.background = t.bg;
 }
 function renderThemeGrid(){
   document.getElementById('theme-grid').innerHTML = THEMES.map(function(t){
